@@ -1,11 +1,11 @@
+[connection]
 id=eduroam
-uuid=cf743783-bcae-420a-8893-e9e068d47a7d
+uuid=daa7381c-65d1-4398-8c4c-4097513df687
 type=wifi
 interface-name=wlp58s0
 permissions=
 
 [wifi]
-mac-address=30:52:CB:85:3B:3F
 mac-address-blacklist=
 mode=infrastructure
 ssid=eduroam
@@ -14,10 +14,9 @@ ssid=eduroam
 key-mgmt=wpa-eap
 
 [802-1x]
-domain-suffix-match=vassar.edu
 eap=peap;
-identity=
-password=
+identity=crose@vassar.edu
+password=halfcaloriesfullflavor5050
 phase2-auth=mschapv2
 
 [ipv4]
@@ -27,6 +26,4 @@ method=auto
 [ipv6]
 addr-gen-mode=stable-privacy
 dns-search=
-ip6-privacy=0
 method=auto
-
