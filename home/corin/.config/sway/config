@@ -205,3 +205,5 @@ bar {
 font pango: Roboto Mono 9
 
 include /etc/sway/config.d/*
+
+default_border pixel 4 
