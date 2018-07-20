@@ -31,12 +31,18 @@ git_color ()
 {
     git fetch 2> /dev/null
     local git_status="$(git status 2> /dev/null)"
-    if [[ $git_status  =~ "branch is behind" ]] 
+    if [[ $git_status  =~ "Untracked files" ]] 
+    then
+        echo "${PURP}"
+    elif [[ $git_status =~ "Your branch is ahead" ]]
+    then
+        echo "${ORANGE}"
+    elif [[ $git_status =~ "Your branch is up to date" ]]
+    then
+        echo "${GREEN}" 
+    elif [[ $git_status =~ "Your branch is behind" ]]
     then
         echo "${RED}"
-    elif [[ $git_status =~ "nothing to commit" ]]
-    then
-        echo "${GREEN}"
     else
         echo "${ORANGE}"
     fi
