@@ -8,9 +8,10 @@
 RED="$(tput setaf 9)"
 GREEN="$(tput setaf 119)"
 BLUE="$(tput setaf 6)"
-DGREEN="$(tput setaf 34)" 
 PURP="$(tput setaf 55)"
+DGREEN="$(tput setaf 34)" 
 LBLUE="$(tput setaf 14)"
+ORANGE="$(tput setaf 216)"
 RESET="$(tput sgr0)"
 
 ### -- PROMPT -- ###
@@ -28,11 +29,16 @@ git_branch () { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/';
 
 git_color ()
 {
+    git fetch 2> /dev/null
     local git_status="$(git status 2> /dev/null)"
-    if [[ $git_status  =~ "nothing to commit" ]]; then
+    if [[ $git_status  =~ "branch is behind" ]] 
+    then
+        echo "${RED}"
+    elif [[ $git_status =~ "nothing to commit" ]]
+    then
         echo "${GREEN}"
     else
-        echo "${RED}"
+        echo "${ORANGE}"
     fi
 }
 
