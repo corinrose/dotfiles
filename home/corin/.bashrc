@@ -53,4 +53,4 @@ alias ls="ls --color=always"
 alias l="ls --color=always -la"
 
 ### -- PATH -- ###
-export $PATH=$PATH:~/.local/bin/
+export PATH=$PATH:~/.local/bin/
