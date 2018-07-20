@@ -1,22 +1,50 @@
 #
+# Corin Rose
 # ~/.bashrc
 #
 
-# If not running interactively, don't do anything
-[[ $- != *i* ]] && return
+### -- COLORS -- ###
 
-alias ls='ls --color=auto'
-PS1='[\u@\h \W]\$ '
+RED="$(tput setaf 9)"
+GREEN="$(tput setaf 119)"
+BLUE="$(tput setaf 6)"
+DGREEN="$(tput setaf 34)" 
+PURP="$(tput setaf 55)"
+LBLUE="$(tput setaf 14)"
+RESET="$(tput sgr0)"
 
-# tell GTK to use wayland
-GDK_BACKEND=wayland
-CLUTTER_BACKEND=wayland
+### -- PROMPT -- ###
 
-# tell QT to use wayland
-QT_QPA_PLATFORM=wayland-egl
+exitstatus()
+{
+    if [ $? -eq 0 ]; then
+        echo "${GREEN}"
+    else
+        echo "${RED}"
+    fi
+}
 
-# tell SDL to use wayland
-SDL_VIDEODRIVER=wayland
+git_branch () { git branch 2> /dev/null | sed -e '/^[^*]/d' -e 's/* \(.*\)/\1/'; }
 
-# tell Gnome to use wayland
-XDG_SESSION_TYPE=wayland
+git_color ()
+{
+    local git_status="$(git status 2> /dev/null)"
+    if [[ $git_status  =~ "nothing to commit" ]]; then
+        echo "${GREEN}"
+    else
+        echo "${RED}"
+    fi
+}
+
+EXITSTATUS='$(exitstatus):'
+WD='${BLUE}\W '
+BRANCH='$(git_color)$(git_branch)'
+PROMPT='${BLUE}> ${RESET}'
+export PS1=$EXITSTATUS$WD$BRANCH$PROMPT
+
+### -- ALIAS -- ###
+alias ls="ls --color=always"
+alias l="ls --color=always -la"
+
+### -- PATH -- ###
+export $PATH=$PATH:~/.local/bin/
