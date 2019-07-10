@@ -19,4 +19,4 @@ source $ZSH/oh-my-zsh.sh
 
 
 ### ALIAS ###
-alias vt="vim --servername vim"
+alias vt="vim --servername vim *.tex"
