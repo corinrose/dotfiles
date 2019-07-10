@@ -16,7 +16,7 @@ key-mgmt=wpa-eap
 [802-1x]
 eap=peap;
 identity=crose@vassar.edu
-password=halfcaloriesfullflavor5050
+password=
 phase2-auth=mschapv2
 
 [ipv4]
