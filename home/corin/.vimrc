@@ -1,3 +1,5 @@
+filetype plugin on
+
 " line number
 set number relativenumber
 
@@ -12,8 +14,10 @@ set encoding=utf-8
 
 " vimwiki
 set nocompatible
-filetype plugin on
 let g:vimwiki_list = [{'path': '~/notebook', 'syntax': 'markdown', 'ext': '.md'}]
+
+" vimtex
+let g:vimtex_view_method = 'zathura'
 
 " showcmd
 set showcmd
