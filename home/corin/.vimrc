@@ -17,7 +17,10 @@ set spelllang=en_us
 inoremap <C-l> <c-g>u<Esc>[s1z=`]a<c-g>u
 
 " tagbar
-nmap <C-w>t :TagbarToggle<CR>
+nmap \t :TagbarToggle<CR>
+
+" vimtex
+nmap \c :VimtexTocToggle<CR>
 
 " showcmd
 set showcmd
@@ -31,8 +34,12 @@ set wildmenu
 " file manager
 let g:netrw_banner = 0
 let g:netrw_liststyle = 3
-nmap <C-w>v :Vex<CR>
-nmap <C-w>b :Sex<CR>
+nmap \v :Vex<CR>
+nmap \b :Sex<CR>
+nmap \e :Ex<CR>
+
+" fuzzy search
+nmap \f :FZF<CR>
 
 " window navigation
 nmap <C-h> <C-w>h
